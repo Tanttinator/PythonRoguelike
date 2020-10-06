@@ -9,6 +9,10 @@ if TYPE_CHECKING:
     from engine import Engine
     from game_map import GameMap
 
+def render_dungeon_level(console: Console, dungeon_level: int, location: Tuple[int, int]) -> None:
+    x, y = location
+    console.print(x=x, y=y, string=f"Dungeon level: {dungeon_level}")
+
 def get_names_at_location(x: int, y: int, game_map: GameMap) -> str:
     if not game_map.in_bounds(x, y) or not game_map.visible[x, y]:
         return ""
